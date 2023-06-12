@@ -55,7 +55,19 @@ public class CacheManager : ICacheManager
             return default;
         }
     }
-
+public async Task<T?> GetFromMemoryCacheOrDefault<T>(string key, T? defaultValue = default)
+{
+    try
+    {
+        var result = await _memoryCacheProvider.GetAsync<T>(key);
+        return result.HasValue ? result.Value : defaultValue;
+    }
+    catch
+    {
+        // Log or handle the exception
+        return defaultValue;
+    }
+}
     // Remove from memory cache
     public async Task<bool> RemoveFromMemoryCache(string key)
     {
@@ -98,6 +110,20 @@ public class CacheManager : ICacheManager
             return default;
         }
     }
+
+    public async Task<T?> GetFromFasterKvCacheOrDefault<T>(string key, T? defaultValue = default)
+{
+    try
+    {
+        var result = await _fasterKvCacheProvider.GetAsync<T>(key);
+        return result.HasValue ? result.Value : defaultValue;
+    }
+    catch
+    {
+        // Log or handle the exception
+        return defaultValue;
+    }
+}
 
     // Remove from FasterKV cache
     public async Task<bool> RemoveFromFasterKvCache(string key)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZxggKg3eUQSa9qXzTmS9nHcnA9CZ2u82kNehuE04PWlNCUwT3YHuVKH6+MaM12Suy5pfKzjIPSnm5p6es2owvg==",
+  "dgSpecHash": "4Y47IBIWKyguUCpCwiDiDAsxlZIO2qqqmJerEZd/Q4QMZy0pdkklP69ZDfAGUZUd9qUV8nhlCZv9tcxHx7iwmQ==",
   "success": true,
-  "projectFilePath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+  "projectFilePath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\terre\\.nuget\\packages\\easycaching.core\\1.9.0\\easycaching.core.1.9.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\easycaching.extensions.easycompressor\\1.4.0\\easycaching.extensions.easycompressor.1.4.0.nupkg.sha512",

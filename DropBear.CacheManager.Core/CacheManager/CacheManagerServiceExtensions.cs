@@ -4,7 +4,7 @@ namespace DropBear.CacheManager.Core;
 
 public static class CacheManagerServiceExtensions
 {
-    public static IServiceCollection AddCacheManager(this IServiceCollection services) { 
+    public static IServiceCollection AddInternalCacheManager(this IServiceCollection services) { 
 
         // Register the compressor
         services.AddLZMACompressor();

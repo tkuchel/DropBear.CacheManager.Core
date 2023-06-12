@@ -12,7 +12,7 @@ public static class CacheManagerServiceCollectionExtensions
         services.Configure(configure);
 
         // Register the cache manager
-        services.AddCacheManager();
+        services.AddInternalCacheManager();
 
         // Run Preflight checks
         services.AddHostedService<PreflightCheckService>();
