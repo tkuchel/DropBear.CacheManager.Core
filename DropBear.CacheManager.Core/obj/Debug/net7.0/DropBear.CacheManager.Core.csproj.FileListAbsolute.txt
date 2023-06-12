@@ -1,0 +1,12 @@
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\bin\Debug\net7.0\DropBear.CacheManager.Core.deps.json
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\bin\Debug\net7.0\DropBear.CacheManager.Core.dll
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\bin\Debug\net7.0\DropBear.CacheManager.Core.pdb
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.csproj.AssemblyReference.cache
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.GeneratedMSBuildEditorConfig.editorconfig
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.AssemblyInfoInputs.cache
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.AssemblyInfo.cs
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.csproj.CoreCompileInputs.cache
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.dll
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\refint\DropBear.CacheManager.Core.dll
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\DropBear.CacheManager.Core.pdb
+c:\Projects\DropBear.CacheManager.Core\DropBear.CacheManager.Core\obj\Debug\net7.0\ref\DropBear.CacheManager.Core.dll

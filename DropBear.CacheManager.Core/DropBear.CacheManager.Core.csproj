@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyCaching.Core" Version="1.9.0" />
+    <PackageReference Include="EasyCaching.Extensions.EasyCompressor" Version="1.4.0" />
+    <PackageReference Include="EasyCaching.FasterKv" Version="1.9.0" />
+    <PackageReference Include="EasyCaching.InMemory" Version="1.9.0" />
+    <PackageReference Include="EasyCaching.Serialization.MessagePack" Version="1.9.0" />
+    <PackageReference Include="EasyCompressor.LZMA" Version="1.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PostFlight\" />
+  </ItemGroup>
+
+</Project>

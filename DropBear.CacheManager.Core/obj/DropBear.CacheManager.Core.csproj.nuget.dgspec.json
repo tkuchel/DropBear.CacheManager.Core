@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj": {}
+  },
+  "projects": {
+    "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+        "projectName": "DropBear.CacheManager.Core",
+        "projectPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+        "packagesPath": "C:\\Users\\terre\\.nuget\\packages\\",
+        "outputPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\terre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.abp.io/63aaef44-003a-4e31-aca7-6093ae59364b/v3/index.json": {},
+          "https://nuget.devexpress.com/5B24fPmKE94eZ1tUVQYJpfTCMPB2xJkqlIVn9Wi4pufNCu4snK/api": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "EasyCaching.Core": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "EasyCaching.Extensions.EasyCompressor": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "EasyCaching.FasterKv": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "EasyCaching.InMemory": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "EasyCaching.Serialization.MessagePack": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "EasyCompressor.LZMA": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.2, 7.0.2]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.2, 7.0.2]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.2, 7.0.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.2.23157.25\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
