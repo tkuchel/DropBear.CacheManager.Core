@@ -19,10 +19,11 @@ namespace DropBear.CacheManager.Core
         /// Initializes a new instance of the <see cref="CacheManager"/> class.
         /// </summary>
         /// <param name="providerFactory">The provider factory.</param>
-        public CacheManager(IEasyCachingProviderFactory providerFactory)
+        public CacheManager(IEasyCachingProviderFactory providerFactory, ILogger<CacheManager> logger)
         {
             _memoryCacheProvider = providerFactory.GetCachingProvider("mem_cache");
             _fasterKvCacheProvider = providerFactory.GetCachingProvider("fasterkv_cache");
+            _logger = logger;
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace DropBear.CacheManager.Core
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while checking if key '{Key}' exists in cache.", key);
+                _logger.LogError(ex, "An error occurred while checking if key '{Key}' exists in cache", key);
                 throw;
             }
         }
@@ -105,7 +106,7 @@ namespace DropBear.CacheManager.Core
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while adding the key '{Key}' into the cache.", key);
+                _logger.LogError(ex, "An error occurred while adding the key '{Key}' into the cache", key);
                 throw;
             }
         }
@@ -146,7 +147,7 @@ namespace DropBear.CacheManager.Core
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while retrieving the key '{Key}' from the cache.", key);
+                _logger.LogError(ex, "An error occurred while retrieving the key '{Key}' from the cache", key);
                 throw;
             }
         }
@@ -185,7 +186,7 @@ namespace DropBear.CacheManager.Core
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while removing the key '{Key}' from the cache.", key);
+                _logger.LogError(ex, "An error occurred while removing the key '{Key}' from the cache", key);
                 throw;
             }
         }

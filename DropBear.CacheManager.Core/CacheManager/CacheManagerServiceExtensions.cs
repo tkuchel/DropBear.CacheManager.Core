@@ -33,7 +33,6 @@ namespace DropBear.CacheManager.Core
             } 
             catch (Exception ex) 
             {
-                //_logger.LogError(ex, "Error Message");
                 throw;
             }
 

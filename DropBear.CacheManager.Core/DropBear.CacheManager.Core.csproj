@@ -4,6 +4,15 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1</Version>
+    <Title>Simple Cache Manager.</Title>
+    <Description>A very simple cache manager implementation using EasyCaching as a backend.</Description>
+    <Copyright>Copyright Terrence Kuchel 2023</Copyright>
+    <PackageIcon>CacheManagerIcon.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/tkuchel/DropBear.CacheManager.Core</RepositoryUrl>
+    <PackageTags>c#, cache, cache manager, simple cache</PackageTags>
+    <PackageReleaseNotes>Released under MIT license.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +30,13 @@
 
   <ItemGroup>
     <Folder Include="PostFlight\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CacheManagerIcon.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
