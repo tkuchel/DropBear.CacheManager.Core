@@ -1,23 +1,41 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
-namespace DropBear.CacheManager.Core;
-public static class CacheManagerServiceCollectionExtensions
+namespace DropBear.CacheManager.Core
 {
-    public static IServiceCollection AddCacheManager(this IServiceCollection services, Action<CacheManagerOptions> configure)
+    /// <summary>
+    /// Provides extension methods for <see cref="IServiceCollection"/> to add CacheManager services.
+    /// </summary>
+    public static class CacheManagerServiceCollectionExtensions
     {
-        // Check for nulls
-        ArgumentValidator.NotNull(configure, nameof(configure));
+        /// <summary>
+        /// Adds the CacheManager services to the specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
+        /// <param name="configure">A delegate to configure the <see cref="CacheManagerOptions"/>. If null, default options will be used.</param>
+        /// <returns>The same service collection so that multiple calls can be chained.</returns>
+        public static IServiceCollection AddCacheManager(this IServiceCollection services, Action<CacheManagerOptions>? configure = null)
+        {
+            // Check for nulls
+            if (services == null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
 
-        // Register the options
-        services.Configure(configure);
+            // Register the options if provided
+            if (configure != null)
+            {
+                services.Configure(configure);
+            }
 
-        // Register the cache manager
-        services.AddInternalCacheManager();
+            // Register the cache manager
+            services.AddInternalCacheManager();
 
-        // Run Preflight checks
-        services.AddHostedService<PreflightCheckService>();
+            // Run Preflight checks
+            services.AddHostedService<PreflightCheckService>();
 
-        // Return the services
-        return services;
+            // Return the services
+            return services;
+        }
     }
 }

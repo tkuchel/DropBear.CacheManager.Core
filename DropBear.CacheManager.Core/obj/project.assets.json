@@ -2054,7 +2054,9 @@
       "EasyCaching.Serialization.MessagePack >= 1.9.0",
       "EasyCompressor.LZMA >= 1.4.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
-      "Microsoft.Extensions.Hosting >= 7.0.1"
+      "Microsoft.Extensions.Hosting >= 7.0.1",
+      "Microsoft.Extensions.Logging >= 7.0.0",
+      "Microsoft.Extensions.Logging.Abstractions >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -2077,7 +2079,7 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\NuGetPackages\\": {},
+        "C:\\MegaSync\\CodeLib\\MyNugetPackages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.abp.io/63aaef44-003a-4e31-aca7-6093ae59364b/v3/index.json": {},
@@ -2130,6 +2132,14 @@
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[7.0.1, )"
+          },
+          "Microsoft.Extensions.Logging": {
+            "target": "Package",
+            "version": "[7.0.0, )"
+          },
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           }
         },
         "imports": [
@@ -2143,26 +2153,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.2, 7.0.2]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.2, 7.0.2]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.2, 7.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.2.23157.25\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
