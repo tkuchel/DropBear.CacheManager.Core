@@ -1,0 +1,37 @@
+name: .NET Core CI
+
+on:
+  push:
+    branches: [ main ] # change this to your default branch name if not 'main'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x' # adjust this to your project's .NET version
+    
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+
+    - name: Pack
+      run: dotnet pack --no-build --output nupkg
+
+    - name: Push
+      uses: rohith/publish-nuget@v2
+      with:
+        PROJECT_FILE_PATH: DropBear.CacheManager.Core/DropBear.CacheManager.Core.csproj
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
