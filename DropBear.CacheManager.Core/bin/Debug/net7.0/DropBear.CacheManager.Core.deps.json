@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "DropBear.CacheManager.Core/1.0.0": {
+      "DropBear.CacheManager.Core/0.0.1": {
         "dependencies": {
           "EasyCaching.Core": "1.9.0",
           "EasyCaching.Extensions.EasyCompressor": "1.4.0",
@@ -15,7 +15,9 @@
           "EasyCaching.Serialization.MessagePack": "1.9.0",
           "EasyCompressor.LZMA": "1.4.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
-          "Microsoft.Extensions.Hosting": "7.0.1"
+          "Microsoft.Extensions.Hosting": "7.0.1",
+          "Microsoft.Extensions.Logging": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0"
         },
         "runtime": {
           "DropBear.CacheManager.Core.dll": {}
@@ -486,14 +488,7 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/7.0.1": {
-        "runtime": {
-          "lib/net7.0/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.323.6910"
-          }
-        }
-      },
+      "System.Diagnostics.DiagnosticSource/7.0.1": {},
       "System.Diagnostics.EventLog/7.0.0": {
         "runtime": {
           "lib/net7.0/System.Diagnostics.EventLog.dll": {
@@ -548,7 +543,7 @@
     }
   },
   "libraries": {
-    "DropBear.CacheManager.Core/1.0.0": {
+    "DropBear.CacheManager.Core/0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

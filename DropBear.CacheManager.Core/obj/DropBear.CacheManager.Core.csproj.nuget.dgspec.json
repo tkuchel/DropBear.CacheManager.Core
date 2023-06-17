@@ -5,7 +5,7 @@
   },
   "projects": {
     "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj": {
-      "version": "1.0.0",
+      "version": "0.0.1",
       "restore": {
         "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
         "projectName": "DropBear.CacheManager.Core",
@@ -21,8 +21,8 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\MegaSync\\CodeLib\\MyNugetPackages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.abp.io/63aaef44-003a-4e31-aca7-6093ae59364b/v3/index.json": {},
           "https://nuget.devexpress.com/5B24fPmKE94eZ1tUVQYJpfTCMPB2xJkqlIVn9Wi4pufNCu4snK/api": {}
@@ -100,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
