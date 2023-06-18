@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[1.9.0, )"
             },
+            "EasyCaching.Disk": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
             "EasyCaching.Extensions.EasyCompressor": {
               "target": "Package",
               "version": "[1.4.0, )"
@@ -56,6 +60,10 @@
               "version": "[1.9.0, )"
             },
             "EasyCaching.InMemory": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "EasyCaching.SQLite": {
               "target": "Package",
               "version": "[1.9.0, )"
             },

@@ -117,7 +117,7 @@ namespace DropBear.CacheManager.Core
         /// <typeparam name="T">The type of the value.</typeparam>
         /// <param name="key">The key.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public Task<T> GetFromMemoryCache<T>(string key)
+        public Task<T?> GetFromMemoryCache<T>(string key)
         {
             return GetFromCache<T>(_memoryCacheProvider, key);
         }
@@ -128,12 +128,12 @@ namespace DropBear.CacheManager.Core
         /// <typeparam name="T">The type of the value.</typeparam>
         /// <param name="key">The key.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public Task<T> GetFromFasterKvCache<T>(string key)
+        public Task<T?> GetFromFasterKvCache<T>(string key)
         {
             return GetFromCache<T>(_fasterKvCacheProvider, key);
         }
 
-        private async Task<T> GetFromCache<T>(IEasyCachingProvider provider, string key)
+        private async Task<T?> GetFromCache<T>(IEasyCachingProvider provider, string key)
         {
             if (string.IsNullOrEmpty(key))
             {

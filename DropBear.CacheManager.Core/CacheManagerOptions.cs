@@ -1,5 +1,8 @@
 ﻿namespace DropBear.CacheManager.Core;
 public class CacheManagerOptions
 {
-    public bool Configured { get; set; } = false;
+    public bool EnableInMemoryCache { get; set; } = true;
+    public bool EnableFasterKvCache { get; set; } = true;
+    public bool EnableDiskCache { get; set; } = true;
+    public bool EnableSQLiteCache { get; set; } = true;
 }

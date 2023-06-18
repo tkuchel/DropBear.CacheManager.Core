@@ -22,11 +22,10 @@ namespace DropBear.CacheManager.Core
                 throw new ArgumentNullException(nameof(services));
             }
 
-            // Register the options if provided
-            if (configure != null)
-            {
-                services.Configure(configure);
-            }
+            // Create CacheManagerOptions and register them
+            var options = new CacheManagerOptions();
+            configure?.Invoke(options);
+            services.AddSingleton(options);
 
             // Register the cache manager
             services.AddInternalCacheManager();

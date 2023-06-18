@@ -48,7 +48,7 @@ namespace DropBear.CacheManager.Core
         /// <typeparam name="T">The type of the value.</typeparam>
         /// <param name="key">The key.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        Task<T> GetFromMemoryCache<T>(string key);
+        Task<T?> GetFromMemoryCache<T>(string key);
 
         /// <summary>
         /// Retrieves a value from the FasterKV cache.
@@ -56,7 +56,7 @@ namespace DropBear.CacheManager.Core
         /// <typeparam name="T">The type of the value.</typeparam>
         /// <param name="key">The key.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        Task<T> GetFromFasterKvCache<T>(string key);
+        Task<T?> GetFromFasterKvCache<T>(string key);
 
         /// <summary>
         /// Removes a value from the memory cache.
