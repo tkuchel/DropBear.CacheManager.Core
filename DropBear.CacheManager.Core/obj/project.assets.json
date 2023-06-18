@@ -2625,13 +2625,13 @@
     "C:\\Users\\terre\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+      "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
       "projectName": "DropBear.CacheManager.Core",
-      "projectPath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+      "projectPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
       "packagesPath": "C:\\Users\\terre\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\",
+      "outputPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\terre\\AppData\\Roaming\\NuGet\\NuGet.Config",

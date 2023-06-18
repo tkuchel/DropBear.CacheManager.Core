@@ -24,7 +24,9 @@ namespace DropBear.CacheManager.Core
                 // Register Easy Caching
                 services.AddEasyCaching(options =>
                 {
-                    var injectedOptions = services.BuildServiceProvider().GetRequiredService<CacheManagerOptions>();
+                    var injectedOptions = services
+                        .BuildServiceProvider()
+                        .GetRequiredService<CacheManagerOptions>();
 
                     if (injectedOptions.EnableInMemoryCache)
                         options
