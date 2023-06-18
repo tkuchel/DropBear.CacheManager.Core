@@ -52,7 +52,7 @@ namespace DropBear.CacheManager.Core
                             {
                                 configuration.DBConfig = new DiskDbOptions
                                 {
-                                    BasePath = Path.GetTempPath()
+                                    BasePath = injectedOptions.DiskCachePath ?? Path.GetTempPath()
                                 };
                             })
                             .WithMessagePack("msgpack_serializer")
@@ -65,7 +65,7 @@ namespace DropBear.CacheManager.Core
                                 {
                                     config.DBConfig = new SQLiteDBOptions
                                     {
-                                        FileName = "sqlite_cache.db"
+                                        FileName = injectedOptions.SQLiteDatabaseName ?? "sqlite_cache.db"
                                     };
                                 },
                                 "sqlite_cache"
