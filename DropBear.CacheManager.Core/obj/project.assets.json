@@ -2625,7 +2625,7 @@
     "C:\\Users\\terre\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.0.6",
+    "version": "0.0.7",
     "restore": {
       "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
       "projectName": "DropBear.CacheManager.Core",

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBear.CacheManager.Core", "DropBear.CacheManager.Core\DropBear.CacheManager.Core.csproj", "{B4078A62-2A7C-4E0C-9FB5-11C53D7165B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropBear.CacheManager.Core.Tests", "DropBear.CacheManager.Core.Tests\DropBear.CacheManager.Core.Tests.csproj", "{753F41FE-EBA2-4A98-9066-0A56E6EED79B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
