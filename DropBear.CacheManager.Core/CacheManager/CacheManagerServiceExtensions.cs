@@ -28,6 +28,13 @@ namespace DropBear.CacheManager.Core
                         .BuildServiceProvider()
                         .GetRequiredService<CacheManagerOptions>();
 
+                    if (injectedOptions == null)
+                    {
+                        // Log an error, or throw an exception
+                        Console.WriteLine("injectedOptions is null");
+                        throw new Exception("injectedOptions is null");
+                    }
+
                     if (injectedOptions.EnableInMemoryCache)
                         options
                             .UseInMemory("mem_cache")
@@ -52,7 +59,7 @@ namespace DropBear.CacheManager.Core
                             {
                                 configuration.DBConfig = new DiskDbOptions
                                 {
-                                    BasePath = Path.GetTempPath() //injectedOptions.DiskCachePath ?? 
+                                    BasePath = Path.GetTempPath() //injectedOptions.DiskCachePath ??
                                 };
                             })
                             .WithMessagePack("msgpack_serializer")
@@ -65,7 +72,7 @@ namespace DropBear.CacheManager.Core
                                 {
                                     config.DBConfig = new SQLiteDBOptions
                                     {
-                                        FileName =  "sqlite_cache.db" //injectedOptions.SQLiteDatabaseName ??
+                                        FileName = "sqlite_cache.db" //injectedOptions.SQLiteDatabaseName ??
                                     };
                                 },
                                 "sqlite_cache"
@@ -84,6 +91,7 @@ namespace DropBear.CacheManager.Core
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 throw;
             }
 
