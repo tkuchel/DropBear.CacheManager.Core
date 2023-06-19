@@ -10,7 +10,7 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DropBear.CacheManager.Core")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Terrence Kuchel aka DropBear")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright Terrence Kuchel 2023")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A very simple cache manager implementation using EasyCaching as a backend.")]

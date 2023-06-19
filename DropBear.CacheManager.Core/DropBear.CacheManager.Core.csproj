@@ -8,7 +8,7 @@
     <Version>0.0.6</Version>
     <Title>Simple Cache Manager.</Title>
     <Description>A very simple cache manager implementation using EasyCaching as a backend.</Description>
-    <Author>Terrence Kuchel aka DropBear</Author>
+    <Authors>Terrence Kuchel aka DropBear</Authors>
     <Copyright>Copyright Terrence Kuchel 2023</Copyright>
     <PackageIcon>CacheManagerIcon.jpg</PackageIcon>
     <RepositoryUrl>https://github.com/tkuchel/DropBear.CacheManager.Core</RepositoryUrl>
