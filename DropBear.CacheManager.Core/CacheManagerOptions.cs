@@ -5,4 +5,7 @@ public class CacheManagerOptions
     public bool EnableFasterKvCache { get; set; } = true;
     public bool EnableDiskCache { get; set; } = true;
     public bool EnableSQLiteCache { get; set; } = true;
+
+    public string? SQLiteDatabaseName { get;} = null;
+    public string? DiskCachePath { get; set; } = null;
 }
