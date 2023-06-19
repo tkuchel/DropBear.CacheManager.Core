@@ -1,11 +1,12 @@
 # CacheManager 
 
-CacheManager is a .NET library that provides an easy-to-use caching abstraction with support for in-memory and FasterKV caches. 
+CacheManager is a .NET library that provides an easy-to-use caching abstraction with support for in-memory, FasterKV, Disk and SQLite caches. 
 
 ## Features 
 
 - Simple API for adding, retrieving, and removing items from cache. 
 - Support for both in-memory and FasterKV caches. 
+- Support for disk and SQLite caches (new).
 - Built-in preflight checks to ensure proper configuration. 
 - Extensible design that allows for additional cache providers. 
   
