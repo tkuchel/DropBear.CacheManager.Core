@@ -1,9 +1,7 @@
 ﻿using EasyCaching.Core;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 
-namespace DropBear.CacheManager.Core
+namespace DropBear.CacheManager.Core.CacheManager
 {
     /// <summary>
     /// Provides methods for managing cache.

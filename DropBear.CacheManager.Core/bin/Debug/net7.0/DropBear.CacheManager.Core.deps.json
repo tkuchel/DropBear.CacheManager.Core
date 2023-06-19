@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "DropBear.CacheManager.Core/0.0.5": {
+      "DropBear.CacheManager.Core/0.0.6": {
         "dependencies": {
           "EasyCaching.Core": "1.9.0",
           "EasyCaching.Disk": "1.9.0",
@@ -731,7 +731,7 @@
     }
   },
   "libraries": {
-    "DropBear.CacheManager.Core/0.0.5": {
+    "DropBear.CacheManager.Core/0.0.6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

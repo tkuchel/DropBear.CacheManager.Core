@@ -1,10 +1,8 @@
 ﻿using EasyCaching.Disk;
 using EasyCaching.SQLite;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
-namespace DropBear.CacheManager.Core
+namespace DropBear.CacheManager.Core.CacheManager
 {
     public static class CacheManagerServiceExtensions
     {
@@ -88,7 +86,7 @@ namespace DropBear.CacheManager.Core
                 });
 
                 // Register the cache manager
-                services.AddSingleton<ICacheManager, CacheManager>();
+                services.AddSingleton<ICacheManager, Core.CacheManager.CacheManager>();
             }
             catch (Exception ex)
             {

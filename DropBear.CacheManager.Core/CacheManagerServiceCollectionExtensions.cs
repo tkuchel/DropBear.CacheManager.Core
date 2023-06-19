@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using DropBear.CacheManager.Core.CacheManager;
+using DropBear.CacheManager.Core.PreFlight;
 
 namespace DropBear.CacheManager.Core
 {
