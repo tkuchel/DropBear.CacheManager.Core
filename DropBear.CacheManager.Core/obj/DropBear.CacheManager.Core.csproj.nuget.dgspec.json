@@ -5,7 +5,7 @@
   },
   "projects": {
     "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj": {
-      "version": "0.0.8",
+      "version": "0.0.9",
       "restore": {
         "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
         "projectName": "DropBear.CacheManager.Core",
