@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a4fahtOC9d+R2OIh6xUEXBIrR/+e8yxdgV5mS6Xc9TvIb1ZymLDkStQyLZwdGMO8G12ViQmGE6+yj3JtmDR4qw==",
+  "dgSpecHash": "e6mh0D8SAY/VzZ3qQQJDPWWdIVAaRF2G+DSrccQQi9xnHx+fdG9SjWcjbJ8VDPXHe2EJoSKiDvm7iZkX8MMRzQ==",
   "success": true,
   "projectFilePath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
   "expectedPackageFiles": [
@@ -62,12 +62,5 @@
     "C:\\Users\\terre\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -1,4 +1,5 @@
-﻿using EasyCaching.Disk;
+﻿using System.Xml.Serialization;
+using EasyCaching.Disk;
 using EasyCaching.SQLite;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -55,9 +56,10 @@ namespace DropBear.CacheManager.Core.CacheManager
                         options
                             .UseDisk(configuration =>
                             {
+                                configuration.SerializerName = "msgpack_serializer";
                                 configuration.DBConfig = new DiskDbOptions
                                 {
-                                    BasePath = Path.GetTempPath() //injectedOptions.DiskCachePath ??
+                                    BasePath = injectedOptions.DiskCachePath ?? Path.GetTempPath(), 
                                 };
                             }, "disk_cache")
                             .WithMessagePack("msgpack_serializer")
@@ -68,9 +70,10 @@ namespace DropBear.CacheManager.Core.CacheManager
                             .UseSQLite(
                                 config =>
                                 {
+                                    config.SerializerName = "msgpack_serializer";
                                     config.DBConfig = new SQLiteDBOptions
                                     {
-                                        FileName = "sqlite_cache.db" //injectedOptions.SQLiteDatabaseName ??
+                                        FileName = injectedOptions.SQLiteDatabaseName ?? "sqlite_cache.db" //
                                         
                                     };
                                 },
