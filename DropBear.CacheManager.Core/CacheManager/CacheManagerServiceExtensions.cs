@@ -1,10 +1,8 @@
 ﻿using EasyCaching.Disk;
 using EasyCaching.SQLite;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
-namespace DropBear.CacheManager.Core
+namespace DropBear.CacheManager.Core.CacheManager
 {
     public static class CacheManagerServiceExtensions
     {
@@ -27,6 +25,13 @@ namespace DropBear.CacheManager.Core
                     var injectedOptions = services
                         .BuildServiceProvider()
                         .GetRequiredService<CacheManagerOptions>();
+
+                    if (injectedOptions == null)
+                    {
+                        // Log an error, or throw an exception
+                        Console.WriteLine("injectedOptions is null");
+                        throw new Exception("injectedOptions is null");
+                    }
 
                     if (injectedOptions.EnableInMemoryCache)
                         options
@@ -52,9 +57,9 @@ namespace DropBear.CacheManager.Core
                             {
                                 configuration.DBConfig = new DiskDbOptions
                                 {
-                                    BasePath = injectedOptions.DiskCachePath ?? Path.GetTempPath()
+                                    BasePath = Path.GetTempPath() //injectedOptions.DiskCachePath ??
                                 };
-                            })
+                            }, "disk_cache")
                             .WithMessagePack("msgpack_serializer")
                             .WithCompressor();
 
@@ -65,7 +70,8 @@ namespace DropBear.CacheManager.Core
                                 {
                                     config.DBConfig = new SQLiteDBOptions
                                     {
-                                        FileName = injectedOptions.SQLiteDatabaseName ?? "sqlite_cache.db"
+                                        FileName = "sqlite_cache.db" //injectedOptions.SQLiteDatabaseName ??
+                                        
                                     };
                                 },
                                 "sqlite_cache"
@@ -80,10 +86,11 @@ namespace DropBear.CacheManager.Core
                 });
 
                 // Register the cache manager
-                services.AddSingleton<ICacheManager, CacheManager>();
+                services.AddSingleton<ICacheManager, Core.CacheManager.CacheManager>();
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 throw;
             }
 

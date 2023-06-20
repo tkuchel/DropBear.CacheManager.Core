@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace DropBear.CacheManager.Core;
+namespace DropBear.CacheManager.Core.PreFlight;
 public class PreflightCheckService : IHostedService
 {
     public Task StartAsync(CancellationToken cancellationToken)

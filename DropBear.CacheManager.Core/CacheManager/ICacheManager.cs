@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace DropBear.CacheManager.Core
+﻿namespace DropBear.CacheManager.Core.CacheManager
 {
     /// <summary>
     /// Defines methods for managing cache.

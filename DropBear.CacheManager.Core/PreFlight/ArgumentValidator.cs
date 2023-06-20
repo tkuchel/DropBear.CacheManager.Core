@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace DropBear.CacheManager.Core
+﻿namespace DropBear.CacheManager.Core.PreFlight
 {
     /// <summary>
     /// Provides methods for validating arguments.

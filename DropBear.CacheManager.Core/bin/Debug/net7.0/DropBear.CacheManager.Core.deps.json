@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "DropBear.CacheManager.Core/0.0.2": {
+      "DropBear.CacheManager.Core/0.0.6": {
         "dependencies": {
           "EasyCaching.Core": "1.9.0",
           "EasyCaching.Disk": "1.9.0",
@@ -667,7 +667,14 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/7.0.1": {},
+      "System.Diagnostics.DiagnosticSource/7.0.1": {
+        "runtime": {
+          "lib/net7.0/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.323.6910"
+          }
+        }
+      },
       "System.Diagnostics.EventLog/7.0.0": {
         "runtime": {
           "lib/net7.0/System.Diagnostics.EventLog.dll": {
@@ -724,7 +731,7 @@
     }
   },
   "libraries": {
-    "DropBear.CacheManager.Core/0.0.2": {
+    "DropBear.CacheManager.Core/0.0.6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
