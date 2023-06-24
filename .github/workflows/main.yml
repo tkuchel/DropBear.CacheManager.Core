@@ -33,5 +33,5 @@ jobs:
     - name: Push
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: DropBear.CacheManager.Core/DropBear.CacheManager.Core.csproj
+        PROJECT_FILE_PATH: DropBear.CacheManager.Core/DropBear.CacheManager.Core/DropBear.CacheManager.Core.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
