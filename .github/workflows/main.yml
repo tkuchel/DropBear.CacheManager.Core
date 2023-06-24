@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '7.0.x' # adjust this to your project's .NET version
     
@@ -33,5 +33,5 @@ jobs:
     - name: Push
       uses: rohith/publish-nuget@v2
       with:
-        PROJECT_FILE_PATH: DropBear.CacheManager.Core/DropBear.CacheManager.Core/DropBear.CacheManager.Core.csproj
+        PROJECT_FILE_PATH: DropBear.CacheManager.Core/DropBear.CacheManager.Core.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
