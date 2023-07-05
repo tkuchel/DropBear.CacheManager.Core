@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.9</Version>
+    <Version>0.1.0</Version>
     <Title>Simple Cache Manager.</Title>
     <Description>A very simple cache manager implementation using EasyCaching as a backend.</Description>
     <Authors>Terrence Kuchel aka DropBear</Authors>
