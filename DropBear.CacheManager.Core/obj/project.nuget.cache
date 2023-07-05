@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zo+fF0W5iJHVEXCEpYPi/leoOUL8wCHEZXdVbKbuJfpE/PYzXl//tUmjiptObOwwexhCVBtfbKt5HFnM/DZLHw==",
+  "dgSpecHash": "po7GrOWolYxqcqVMljq4XNBVKwl9B+s5AzGphjPdCNRfhakPpJ/AxPQXW1fL8CR8ySin8r9Y49Pgor5wSgXhfA==",
   "success": true,
-  "projectFilePath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+  "projectFilePath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\terre\\.nuget\\packages\\dapper\\2.0.30\\dapper.2.0.30.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\easycaching.core\\1.9.0\\easycaching.core.1.9.0.nupkg.sha512",
@@ -60,10 +60,7 @@
     "C:\\Users\\terre\\.nuget\\packages\\system.reflection.emit.lightweight\\4.6.0\\system.reflection.emit.lightweight.4.6.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\terre\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\terre\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.2\\microsoft.netcore.app.ref.7.0.2.nupkg.sha512",
-    "C:\\Users\\terre\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.2\\microsoft.windowsdesktop.app.ref.7.0.2.nupkg.sha512",
-    "C:\\Users\\terre\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.2\\microsoft.aspnetcore.app.ref.7.0.2.nupkg.sha512"
+    "C:\\Users\\terre\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

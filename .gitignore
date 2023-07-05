@@ -47,8 +47,6 @@ project.fragment.lock.json
 artifacts/ 
 
 # NUNIT 
-*.VisualState.xml 
-TestResult.xml 
 
 # T4 Template auto-generated files 
 *.tt.h 
@@ -89,8 +87,5 @@ DropBear.CacheManager.Core/obj/DropBear.CacheManager.Core.csproj.nuget.dgspec.js
 DropBear.CacheManager.Core/obj/project.assets.json
 DropBear.CacheManager.Core/obj/Debug/net7.0/DropBear.CacheManager.Core.assets.cache
 DropBear.CacheManager.Core/obj/Debug/net7.0/DropBear.CacheManager.Core.csproj.AssemblyReference.cache
-DropBear.CacheManager.Core/obj/DropBear.CacheManager.Core.csproj.nuget.dgspec.json
 DropBear.CacheManager.Core/obj/DropBear.CacheManager.Core.csproj.nuget.g.props
-DropBear.CacheManager.Core/obj/project.assets.json
 DropBear.CacheManager.Core/obj/project.nuget.cache
-DropBear.CacheManager.Core/obj/Debug/net7.0/DropBear.CacheManager.Core.assets.cache

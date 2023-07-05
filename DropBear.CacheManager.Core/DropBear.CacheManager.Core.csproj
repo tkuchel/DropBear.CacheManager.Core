@@ -44,4 +44,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include=".build\GetBuildVersion.psm1" />
+    <Content Include=".github\workflows\CI.yml" />
+  </ItemGroup>
+
 </Project>
