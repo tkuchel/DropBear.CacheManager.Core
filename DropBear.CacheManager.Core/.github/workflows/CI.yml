@@ -2,8 +2,6 @@ name: CI
 
 on:
   create:
-    branches: 
-      - release/**
   push:
     branches:
     - main
@@ -16,7 +14,7 @@ jobs:
 
     env:
       BUILD_CONFIG: 'Release'
-      SOLUTION: 'MySolution.sln'
+      SOLUTION: 'DropBear.CacheManager.Core.sln'
 
     runs-on: ubuntu-latest
 
