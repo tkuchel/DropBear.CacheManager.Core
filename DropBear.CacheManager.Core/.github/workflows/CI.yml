@@ -5,9 +5,15 @@ on:
   push:
     branches:
     - main
+    paths:
+      - build/**
+      - .github/workflows/ci.yml
   pull_request:
     branches:
     - main
+    paths:
+      - build/**
+      - .github/workflows/ci.yml
     
 jobs:
   build:
