@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TG20LdLa8xwlxX2m9TyEYYIdLl9FzdnJ/d4oAUVJC9FqGOcyOZ8DNju3PRMnKEMLUew6Z1PiOM7gQBRAdX6n1Q==",
+  "dgSpecHash": "gKsD+LS9zQ4yy7Not2l8qSKHtK7CzaojXqrTbT3Bw9eUNFxzTml9IeP1p1Lk9SL0uWKeE9bJo712UntEz1cRkQ==",
   "success": true,
-  "projectFilePath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+  "projectFilePath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\terre\\.nuget\\packages\\dapper\\2.0.30\\dapper.2.0.30.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\easycaching.core\\1.9.0\\easycaching.core.1.9.0.nupkg.sha512",

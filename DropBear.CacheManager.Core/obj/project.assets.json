@@ -2626,13 +2626,13 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "0.1.1",
+    "version": "0.1.2",
     "restore": {
-      "projectUniqueName": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+      "projectUniqueName": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
       "projectName": "DropBear.CacheManager.Core",
-      "projectPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
+      "projectPath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
       "packagesPath": "C:\\Users\\terre\\.nuget\\packages\\",
-      "outputPath": "c:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\",
+      "outputPath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

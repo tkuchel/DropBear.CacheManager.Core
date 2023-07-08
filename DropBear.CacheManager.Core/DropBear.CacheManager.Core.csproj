@@ -34,19 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PostFlight\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="CacheManagerIcon.jpg">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include=".build\GetBuildVersion.psm1" />
-    <Content Include=".github\workflows\CI.yml" />
-  </ItemGroup>
 
 </Project>
