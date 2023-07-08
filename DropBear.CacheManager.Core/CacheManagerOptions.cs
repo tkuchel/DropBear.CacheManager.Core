@@ -6,6 +6,6 @@ public class CacheManagerOptions
     public bool EnableDiskCache { get; set; } = true;
     public bool EnableSQLiteCache { get; set; } = true;
 
-    public string? SQLiteDatabaseName { get;} = null;
+    public string? SQLiteDatabaseName { get; set; } = null;
     public string? DiskCachePath { get; set; } = null;
 }
