@@ -41,6 +41,7 @@
 
 
 
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy /Y &quot;$(TargetDir)..\$(AssemblyName).$(Version).nupkg&quot; &quot;C:\MegaSync\Private Nuget Packages\$(AssemblyName).$(Version).nupkg&quot;" />
   </Target>

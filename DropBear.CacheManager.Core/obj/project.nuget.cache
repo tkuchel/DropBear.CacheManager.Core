@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "POuQxmqu7Pj5UqThGs/XXVgs+GheT684F38Y8mjJ5llXqSg0ZkBBkYewSO5EdiCATUcl1Rbu4/9ODL4f5r0Vcw==",
+  "dgSpecHash": "/yzBKpEJTTEP83ELzxUHIw7UEr6mussqwg2DIvrBctg+TfD6FGWLGgzjixcWn41VGG1I0JwtZNw4dutqXXmP8g==",
   "success": true,
   "projectFilePath": "C:\\Projects\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core\\DropBear.CacheManager.Core.csproj",
   "expectedPackageFiles": [
@@ -59,7 +59,10 @@
     "C:\\Users\\terre\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\terre\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\terre\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\terre\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\terre\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.2\\microsoft.netcore.app.ref.7.0.2.nupkg.sha512",
+    "C:\\Users\\terre\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.2\\microsoft.windowsdesktop.app.ref.7.0.2.nupkg.sha512",
+    "C:\\Users\\terre\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.2\\microsoft.aspnetcore.app.ref.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }

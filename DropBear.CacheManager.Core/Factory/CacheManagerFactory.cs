@@ -1,4 +1,5 @@
 ﻿using DropBear.CacheManager.Core.Interfaces;
+using EasyCaching.Core;
 using EasyCaching.Core.Configurations;
 using EasyCaching.Disk;
 using EasyCaching.SQLite;
@@ -59,8 +60,14 @@ public class CacheManagerFactory
 
                 x.IncludeRegistry<CoreRegistry>();
 
-                x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
-                //x.For<ICacheManagerCore>().Use(ctx => new CacheManagerCore(ctx.GetInstance<IContainer>())).Singleton();
+                //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
+                x.For<ICacheManagerCore>().Use(ctx => 
+                    new CacheManagerCore(
+                        ctx.GetInstance<IEasyCachingProviderFactory>(), 
+                        ctx.GetInstance<ILogger<CacheManagerCore>>()
+                    )
+                ).Singleton();
+
 
             });
         }
