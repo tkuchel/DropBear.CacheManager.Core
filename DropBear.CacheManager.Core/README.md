@@ -1,65 +1,68 @@
-# CacheManager 
+# DropBear CacheManager
 
-CacheManager is a .NET library that provides an easy-to-use caching abstraction with support for in-memory, FasterKV, Disk and SQLite caches. 
+This package provides a simple and flexible way to manage caching in your .NET applications. It supports multiple caching providers including In-Memory, Disk, SQLite, and FasterKV.
 
-## Features 
+## Installation
 
-- Simple API for adding, retrieving, and removing items from cache. 
-- Support for both in-memory and FasterKV caches. 
-- Support for disk and SQLite caches (new).
-- Built-in preflight checks to ensure proper configuration. 
-- Extensible design that allows for additional cache providers. 
-  
-## Installation 
+Install the NuGet package in your project:
 
-You can add CacheManager to your project by using the NuGet package manager in Visual Studio, or by using the `dotnet add package` command in the .NET CLI: 
+```shell
+dotnet add package DropBear.CacheManager
+```
 
-```bash 
-dotnet add package DropBear.CacheManager 
-``` 
+## Usage
 
-## Usage 
+### Using the Service Collection Extension
 
-First, register the CacheManager services in your `Startup.cs` file: 
+In your `Startup.cs` or wherever you configure your services, add the following code:
 
-```csharp 
-public void ConfigureServices(IServiceCollection services) 
-{ 
-    // Other service configuration... 
+```csharp
+services.AddCacheManagerCore(options =>
+{
+    options.UseMemoryCache = true;
+    options.UseDiskCache = true;
+    options.UseSQLiteCache = true;
+    options.UseFasterKvCache = true;
+    options.DefaultLoggingLevel = LogLevel.Debug;
+});
+```
 
-    services.AddCacheManager(); 
-} 
-``` 
+### Using the CacheManagerFactory
 
-Then, you can inject and use `ICacheManager` in your classes: 
+If you're not using a `ServiceCollection`, you can use the `CacheManagerFactory` to create an instance of `CacheManagerCore`:
 
-```csharp 
-public class MyClass 
-{ 
-    private readonly ICacheManager _cacheManager; 
+```csharp
+var factory = new CacheManagerFactory();
+var cacheManager = factory.Create(options =>
+{
+    options.UseMemoryCache = true;
+    options.UseDiskCache = true;
+    options.UseSQLiteCache = true;
+    options.UseFasterKvCache = true;
+    options.DefaultLoggingLevel = LogLevel.Debug;
+});
+```
 
-    public MyClass(ICacheManager cacheManager) 
-    { 
-        _cacheManager = cacheManager; 
-    } 
+### Basic Operations
 
-    public async Task MyMethod() 
-    { 
-        // Use the cache manager 
-        bool exists = await _cacheManager.ExistsInMemoryCache("myKey"); 
-        // Other code... 
-    } 
-} 
-``` 
+The `CacheManagerCore` provides methods for adding, retrieving, and removing cache items:
 
-## Documentation 
+```csharp
+// Add to cache
+await cacheManager.AddToCache("providerName", "key", "value", TimeSpan.FromMinutes(5));
 
-For more detailed documentation, please see the official documentation. 
+// Check if key exists in cache
+bool exists = await cacheManager.ExistsInCache("providerName", "key");
 
-## Contributing 
+// Retrieve from cache
+string value = await cacheManager.GetFromCache<string>("providerName", "key");
 
-We welcome contributions! Please see our contributing guide for details. 
+// Remove from cache
+await cacheManager.RemoveFromCache("providerName", "key");
+```
 
-## License 
+Replace `"providerName"` with the name of the cache provider you want to use (`"mem_cache"`, `"disk_cache"`, `"sqlite_cache"`, or `"fasterkv_cache"`).
 
-CacheManager is licensed under the MIT License. 
+## License
+
+This project is licensed under the MIT License.
