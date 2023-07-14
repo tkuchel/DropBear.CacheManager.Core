@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <Title>Simple Cache Manager.</Title>
     <Description>A very simple cache manager implementation using EasyCaching as a backend.</Description>
     <Authors>Terrence Kuchel aka DropBear</Authors>
@@ -27,10 +27,9 @@
     <PackageReference Include="EasyCaching.Serialization.MessagePack" Version="1.9.0" />
     <PackageReference Include="EasyCaching.SQLite" Version="1.9.0" />
     <PackageReference Include="EasyCompressor.LZMA" Version="1.4.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Lamar" Version="12.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,4 +40,8 @@
   </ItemGroup>
 
 
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(TargetDir)..\$(AssemblyName).$(Version).nupkg&quot; &quot;C:\MegaSync\Private Nuget Packages\$(AssemblyName).$(Version).nupkg&quot;" />
+  </Target>
 </Project>

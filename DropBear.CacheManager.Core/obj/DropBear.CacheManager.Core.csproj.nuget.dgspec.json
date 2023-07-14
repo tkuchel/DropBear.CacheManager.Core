@@ -25,6 +25,7 @@
           "net7.0"
         ],
         "sources": {
+          "C:\\MegaSync\\Private Nuget Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
@@ -79,19 +80,15 @@
               "target": "Package",
               "version": "[1.4.0, )"
             },
-            "Microsoft.Extensions.DependencyInjection": {
+            "Lamar": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[12.0.0, )"
             },
-            "Microsoft.Extensions.Hosting": {
+            "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
               "version": "[7.0.1, )"
             },
-            "Microsoft.Extensions.Logging": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Microsoft.Extensions.Logging.Abstractions": {
+            "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[7.0.0, )"
             }
@@ -112,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
