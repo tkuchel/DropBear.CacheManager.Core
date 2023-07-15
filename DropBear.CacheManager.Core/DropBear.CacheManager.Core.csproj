@@ -5,9 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.3</Version>
-    <Title>Simple Cache Manager.</Title>
-    <Description>A very simple cache manager implementation using EasyCaching as a backend.</Description>
+    <Version>0.1.5</Version>
+    <Title>DropBear CacheManager</Title>
+    <Description>This package provides a simple and flexible way to manage caching in your .NET applications. It supports multiple caching providers including In-Memory, Disk, SQLite, and FasterKV.</Description>
     <Authors>Terrence Kuchel aka DropBear</Authors>
     <Copyright>Copyright Terrence Kuchel 2023</Copyright>
     <PackageIcon>CacheManagerIcon.jpg</PackageIcon>
