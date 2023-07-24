@@ -27,8 +27,7 @@ public static class CacheManagerServiceCollectionExtensions
 
         // Create CacheManagerCore using CacheManagerFactory and register it
         var factory = new CacheManagerFactory();
-        var easyCachingProviderFactory = factory.GetEasyCachingProviderFactory();
-        var cacheManagerCore = factory.Create(easyCachingProviderFactory,configure);
+        var cacheManagerCore = factory.Create(configure);
         services.AddSingleton<ICacheManagerCore>(cacheManagerCore);
 
         // Return the services

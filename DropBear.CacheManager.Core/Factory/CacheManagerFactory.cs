@@ -15,68 +15,62 @@ public class CacheManagerFactory
 {
     private static IContainer? _container;
 
-    public CacheManagerFactory()
-    {
-        if (_container == null)
-        {
-            _container = new Container(x =>
-            {
-                x.IncludeRegistry<CoreRegistry>();
-            });
-        }
-    }
-    
-    public IEasyCachingProviderFactory GetEasyCachingProviderFactory()
-    {
-        return _container.GetInstance<IEasyCachingProviderFactory>();
-    }
+    // public CacheManagerFactory()
+    // {
+    //     if (_container == null)
+    //     {
+    //         _container = new Container(x =>
+    //         {
+    //            
+    //         });
+    //     }
+    // }
 
-    [Obsolete("This method is deprecated. Use Create(ILogger, IEasyCachingProvider memory, IEasyCachingProvider fasterKv, IEasyCachingProvider disk, IEasyCachingProvider sqlite) instead.")]
+    // [Obsolete("This method is deprecated. Use Create(ILogger, IEasyCachingProvider memory, IEasyCachingProvider fasterKv, IEasyCachingProvider disk, IEasyCachingProvider sqlite) instead.")]
+    // public CacheManagerCore Create(Action<CacheManagerFactoryOptions> configure)
+    // {
+    //     var options = new CacheManagerFactoryOptions();
+    //     configure(options);
+    //
+    //     if (_container == null)
+    //         _container = new Container(x =>
+    //         {
+    //             x.AddLogging(configureLog => configureLog.AddConsole())
+    //                 .Configure<LoggerFilterOptions>(filterOptions =>
+    //                     filterOptions.MinLevel = options.DefaultLoggingLevel);
+    //
+    //             // Register the compressor
+    //             x.AddLZMACompressor();
+    //
+    //             // Register Easy Caching
+    //             x.AddEasyCaching(config =>
+    //             {
+    //                 // Configure Disk Cache
+    //                 if (options.UseDiskCache) ConfigureDiskCache(options, config);
+    //
+    //                 // Configure FasterKV Cache
+    //                 if (options.UseFasterKvCache) ConfigureFasterKvCache(options, config);
+    //
+    //                 // Configure Memory Cache
+    //                 if (options.UseMemoryCache) ConfigureMemoryCache(options, config);
+    //
+    //                 // Configure SQLite Cache
+    //                 if (options.UseSQLiteCache) ConfigureSQLiteCache(options, config);
+    //             });
+    //
+    //             //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
+    //             x.For<ICacheManagerCore>().Use(ctx =>
+    //                 new CacheManagerCore(
+    //                     ctx.GetInstance<IEasyCachingProviderFactory>(),
+    //                     ctx.GetInstance<ILogger<CacheManagerCore>>()
+    //                 )
+    //             ).Singleton();
+    //         });
+    //
+    //     return _container.GetInstance<ICacheManagerCore>() as CacheManagerCore;
+    // }
+
     public CacheManagerCore Create(Action<CacheManagerFactoryOptions> configure)
-    {
-        var options = new CacheManagerFactoryOptions();
-        configure(options);
-
-        if (_container == null)
-            _container = new Container(x =>
-            {
-                x.AddLogging(configureLog => configureLog.AddConsole())
-                    .Configure<LoggerFilterOptions>(filterOptions =>
-                        filterOptions.MinLevel = options.DefaultLoggingLevel);
-
-                // Register the compressor
-                x.AddLZMACompressor();
-
-                // Register Easy Caching
-                x.AddEasyCaching(config =>
-                {
-                    // Configure Disk Cache
-                    if (options.UseDiskCache) ConfigureDiskCache(options, config);
-
-                    // Configure FasterKV Cache
-                    if (options.UseFasterKvCache) ConfigureFasterKvCache(options, config);
-
-                    // Configure Memory Cache
-                    if (options.UseMemoryCache) ConfigureMemoryCache(options, config);
-
-                    // Configure SQLite Cache
-                    if (options.UseSQLiteCache) ConfigureSQLiteCache(options, config);
-                });
-
-                //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
-                x.For<ICacheManagerCore>().Use(ctx =>
-                    new CacheManagerCore(
-                        ctx.GetInstance<IEasyCachingProviderFactory>(),
-                        ctx.GetInstance<ILogger<CacheManagerCore>>()
-                    )
-                ).Singleton();
-            });
-
-        return _container.GetInstance<ICacheManagerCore>() as CacheManagerCore;
-    }
-
-    public CacheManagerCore Create(IEasyCachingProviderFactory providerFactory,
-        Action<CacheManagerFactoryOptions> configure)
     {
         var options = new CacheManagerFactoryOptions();
         configure(options);
@@ -103,37 +97,43 @@ public class CacheManagerFactory
                     if (options.UseDiskCache)
                     {
                         ConfigureDiskCache(options, config);
-                        diskCacheProvider = providerFactory.GetCachingProvider("disk_cache");
                     }
 
                     // Configure FasterKV Cache
                     if (options.UseFasterKvCache)
                     {
                         ConfigureFasterKvCache(options, config);
-                        fasterKvCacheProvider = providerFactory.GetCachingProvider("fasterkv_cache");
                     }
 
                     // Configure Memory Cache
                     if (options.UseMemoryCache)
                     {
                         ConfigureMemoryCache(options, config);
-                        memoryCacheProvider = providerFactory.GetCachingProvider("mem_cache");
                     }
 
                     // Configure SQLite Cache
                     if (options.UseSQLiteCache)
                     {
                         ConfigureSQLiteCache(options, config);
-                        sqliteCacheProvider = providerFactory.GetCachingProvider("sqlite_cache");
                     }
                 });
-
+                
+                x.IncludeRegistry<CoreRegistry>();
+                
                 // Use the new constructor that accepts the providerFactory
                 x.For<ICacheManagerCore>().Use(ctx =>
-                    new CacheManagerCore(
-                        ctx.GetInstance<ILogger<CacheManagerCore>>(),
-                        memoryCacheProvider, fasterKvCacheProvider, diskCacheProvider, sqliteCacheProvider
-                    )
+                    {
+                        var providerFactory = ctx.GetInstance<IEasyCachingProviderFactory>();
+                        if(options.UseDiskCache) diskCacheProvider = providerFactory.GetCachingProvider("disk_cache");
+                        if(options.UseFasterKvCache) fasterKvCacheProvider = providerFactory.GetCachingProvider("fasterkv_cache");
+                        if(options.UseMemoryCache) memoryCacheProvider = providerFactory.GetCachingProvider("mem_cache");
+                        if(options.UseSQLiteCache) sqliteCacheProvider = providerFactory.GetCachingProvider("sqlite_cache");
+                        
+                        return new CacheManagerCore(
+                            ctx.GetInstance<ILogger<CacheManagerCore>>(),
+                            memoryCacheProvider, fasterKvCacheProvider, diskCacheProvider, sqliteCacheProvider
+                        );
+                    }
                 ).Singleton();
             });
 
