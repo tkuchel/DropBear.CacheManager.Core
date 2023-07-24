@@ -15,6 +15,22 @@ public class CacheManagerFactory
 {
     private static IContainer? _container;
 
+    public CacheManagerFactory()
+    {
+        if (_container == null)
+        {
+            _container = new Container(x =>
+            {
+                x.IncludeRegistry<CoreRegistry>();
+            });
+        }
+    }
+    
+    public IEasyCachingProviderFactory GetEasyCachingProviderFactory()
+    {
+        return _container.GetInstance<IEasyCachingProviderFactory>();
+    }
+
     [Obsolete("This method is deprecated. Use Create(ILogger, IEasyCachingProvider memory, IEasyCachingProvider fasterKv, IEasyCachingProvider disk, IEasyCachingProvider sqlite) instead.")]
     public CacheManagerCore Create(Action<CacheManagerFactoryOptions> configure)
     {
@@ -46,8 +62,6 @@ public class CacheManagerFactory
                     // Configure SQLite Cache
                     if (options.UseSQLiteCache) ConfigureSQLiteCache(options, config);
                 });
-
-                x.IncludeRegistry<CoreRegistry>();
 
                 //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
                 x.For<ICacheManagerCore>().Use(ctx =>
@@ -113,9 +127,6 @@ public class CacheManagerFactory
                         sqliteCacheProvider = providerFactory.GetCachingProvider("sqlite_cache");
                     }
                 });
-
-                x.IncludeRegistry<CoreRegistry>();
-
 
                 // Use the new constructor that accepts the providerFactory
                 x.For<ICacheManagerCore>().Use(ctx =>

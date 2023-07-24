@@ -1,5 +1,6 @@
 ﻿using DropBear.CacheManager.Core.Factory;
 using DropBear.CacheManager.Core.Interfaces;
+using EasyCaching.Core;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DropBear.CacheManager.Core;
@@ -26,10 +27,13 @@ public static class CacheManagerServiceCollectionExtensions
 
         // Create CacheManagerCore using CacheManagerFactory and register it
         var factory = new CacheManagerFactory();
-        var cacheManagerCore = factory.Create(configure);
+        var easyCachingProviderFactory = factory.GetEasyCachingProviderFactory();
+        var cacheManagerCore = factory.Create(easyCachingProviderFactory,configure);
         services.AddSingleton<ICacheManagerCore>(cacheManagerCore);
 
         // Return the services
         return services;
     }
+    
+    
 }
