@@ -12,6 +12,7 @@ public class CacheManagerCore : ICacheManagerCore
     private readonly IEasyCachingProvider _memoryCacheProvider;
     private readonly IEasyCachingProvider _sqliteCacheProvider;
 
+    [Obsolete("This constructor is deprecated. Use the constructor with specific cache providers.")]
     public CacheManagerCore(
         IEasyCachingProviderFactory providerFactory,
         ILogger<CacheManagerCore> logger)
@@ -20,6 +21,20 @@ public class CacheManagerCore : ICacheManagerCore
         _fasterKvCacheProvider = providerFactory.GetCachingProvider("fasterkv_cache");
         _diskCacheProvider = providerFactory.GetCachingProvider("disk_cache");
         _sqliteCacheProvider = providerFactory.GetCachingProvider("sqlite_cache");
+        _logger = logger;
+    }
+    
+    public CacheManagerCore(
+        ILogger<CacheManagerCore> logger,
+        IEasyCachingProvider memoryCacheProvider = null,
+        IEasyCachingProvider fasterKvCacheProvider = null,
+        IEasyCachingProvider diskCacheProvider = null,
+        IEasyCachingProvider sqliteCacheProvider = null)
+    {
+        _memoryCacheProvider = memoryCacheProvider;
+        _fasterKvCacheProvider = fasterKvCacheProvider;
+        _diskCacheProvider = diskCacheProvider;
+        _sqliteCacheProvider = sqliteCacheProvider;
         _logger = logger;
     }
 

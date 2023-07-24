@@ -15,17 +15,69 @@ public class CacheManagerFactory
 {
     private static IContainer? _container;
 
+    [Obsolete("This method is deprecated. Use Create(ILogger, IEasyCachingProvider memory, IEasyCachingProvider fasterKv, IEasyCachingProvider disk, IEasyCachingProvider sqlite) instead.")]
     public CacheManagerCore Create(Action<CacheManagerFactoryOptions> configure)
     {
         var options = new CacheManagerFactoryOptions();
         configure(options);
 
         if (_container == null)
-        {
             _container = new Container(x =>
             {
                 x.AddLogging(configureLog => configureLog.AddConsole())
-                    .Configure<LoggerFilterOptions>(filterOptions => filterOptions.MinLevel = options.DefaultLoggingLevel);
+                    .Configure<LoggerFilterOptions>(filterOptions =>
+                        filterOptions.MinLevel = options.DefaultLoggingLevel);
+
+                // Register the compressor
+                x.AddLZMACompressor();
+
+                // Register Easy Caching
+                x.AddEasyCaching(config =>
+                {
+                    // Configure Disk Cache
+                    if (options.UseDiskCache) ConfigureDiskCache(options, config);
+
+                    // Configure FasterKV Cache
+                    if (options.UseFasterKvCache) ConfigureFasterKvCache(options, config);
+
+                    // Configure Memory Cache
+                    if (options.UseMemoryCache) ConfigureMemoryCache(options, config);
+
+                    // Configure SQLite Cache
+                    if (options.UseSQLiteCache) ConfigureSQLiteCache(options, config);
+                });
+
+                x.IncludeRegistry<CoreRegistry>();
+
+                //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
+                x.For<ICacheManagerCore>().Use(ctx =>
+                    new CacheManagerCore(
+                        ctx.GetInstance<IEasyCachingProviderFactory>(),
+                        ctx.GetInstance<ILogger<CacheManagerCore>>()
+                    )
+                ).Singleton();
+            });
+
+        return _container.GetInstance<ICacheManagerCore>() as CacheManagerCore;
+    }
+
+    public CacheManagerCore Create(IEasyCachingProviderFactory providerFactory,
+        Action<CacheManagerFactoryOptions> configure)
+    {
+        var options = new CacheManagerFactoryOptions();
+        configure(options);
+
+        IEasyCachingProvider memoryCacheProvider = null;
+        IEasyCachingProvider fasterKvCacheProvider = null;
+        IEasyCachingProvider diskCacheProvider = null;
+        IEasyCachingProvider sqliteCacheProvider = null;
+
+        if (_container == null)
+            _container = new Container(x =>
+            {
+                x.AddLogging(configureLog => configureLog.AddConsole())
+                    .Configure<LoggerFilterOptions>(filterOptions =>
+                        filterOptions.MinLevel = options.DefaultLoggingLevel);
 
                 // Register the compressor
                 x.AddLZMACompressor();
@@ -37,40 +89,42 @@ public class CacheManagerFactory
                     if (options.UseDiskCache)
                     {
                         ConfigureDiskCache(options, config);
+                        diskCacheProvider = providerFactory.GetCachingProvider("disk_cache");
                     }
 
                     // Configure FasterKV Cache
                     if (options.UseFasterKvCache)
                     {
                         ConfigureFasterKvCache(options, config);
+                        fasterKvCacheProvider = providerFactory.GetCachingProvider("fasterkv_cache");
                     }
 
                     // Configure Memory Cache
                     if (options.UseMemoryCache)
                     {
                         ConfigureMemoryCache(options, config);
+                        memoryCacheProvider = providerFactory.GetCachingProvider("mem_cache");
                     }
 
                     // Configure SQLite Cache
                     if (options.UseSQLiteCache)
                     {
                         ConfigureSQLiteCache(options, config);
+                        sqliteCacheProvider = providerFactory.GetCachingProvider("sqlite_cache");
                     }
                 });
 
                 x.IncludeRegistry<CoreRegistry>();
 
-                //x.For<ICacheManagerCore>().Use<CacheManagerCore>().Singleton();
-                x.For<ICacheManagerCore>().Use(ctx => 
+
+                // Use the new constructor that accepts the providerFactory
+                x.For<ICacheManagerCore>().Use(ctx =>
                     new CacheManagerCore(
-                        ctx.GetInstance<IEasyCachingProviderFactory>(), 
-                        ctx.GetInstance<ILogger<CacheManagerCore>>()
+                        ctx.GetInstance<ILogger<CacheManagerCore>>(),
+                        memoryCacheProvider, fasterKvCacheProvider, diskCacheProvider, sqliteCacheProvider
                     )
                 ).Singleton();
-
-
             });
-        }
 
         return _container.GetInstance<ICacheManagerCore>() as CacheManagerCore;
     }
@@ -79,35 +133,29 @@ public class CacheManagerFactory
     {
         var diskCacheBasePath = options.DiskCacheBasePath ?? GetUniquePath();
         config.UseDisk(configuration =>
-        {
-            configuration.DBConfig = new DiskDbOptions
             {
-                BasePath = diskCacheBasePath
-            };
-            ApplyBaseProviderOptions(configuration);
-        }, "disk_cache")
-        .WithMessagePack("msgpack_serializer")
-        .WithCompressor();
+                configuration.DBConfig = new DiskDbOptions
+                {
+                    BasePath = diskCacheBasePath
+                };
+                ApplyBaseProviderOptions(configuration);
+            }, "disk_cache")
+            .WithMessagePack("msgpack_serializer")
+            .WithCompressor();
     }
 
     private void ConfigureFasterKvCache(CacheManagerFactoryOptions options, EasyCachingOptions config)
     {
-        config.UseFasterKv(configuration =>
-        {
-            ApplyBaseProviderOptions(configuration);
-        }, "fasterkv_cache")
-        .WithMessagePack("msgpack_serializer")
-        .WithCompressor();
+        config.UseFasterKv(configuration => { ApplyBaseProviderOptions(configuration); }, "fasterkv_cache")
+            .WithMessagePack("msgpack_serializer")
+            .WithCompressor();
     }
 
     private void ConfigureMemoryCache(CacheManagerFactoryOptions options, EasyCachingOptions config)
     {
-        config.UseInMemory(configuration =>
-        {
-            ApplyBaseProviderOptions(configuration);
-        }, "mem_cache")
-        .WithMessagePack("msgpack_serializer")
-        .WithCompressor();
+        config.UseInMemory(configuration => { ApplyBaseProviderOptions(configuration); }, "mem_cache")
+            .WithMessagePack("msgpack_serializer")
+            .WithCompressor();
     }
 
     private void ConfigureSQLiteCache(CacheManagerFactoryOptions options, EasyCachingOptions config)
@@ -116,18 +164,18 @@ public class CacheManagerFactory
         var sqliteFileName = options.SQLiteFileName ?? "cache.db";
 
         config.UseSQLite(configuration =>
-        {
-            configuration.DBConfig = new SQLiteDBOptions
             {
-                FileName = sqliteFileName,
-                FilePath = sqliteCacheBasePath,
-                CacheMode = SqliteCacheMode.Default,
-                OpenMode = SqliteOpenMode.ReadWriteCreate
-            };
-            ApplyBaseProviderOptions(configuration);
-        }, "sqlite_cache")
-        .WithMessagePack("msgpack_serializer")
-        .WithCompressor();
+                configuration.DBConfig = new SQLiteDBOptions
+                {
+                    FileName = sqliteFileName,
+                    FilePath = sqliteCacheBasePath,
+                    CacheMode = SqliteCacheMode.Default,
+                    OpenMode = SqliteOpenMode.ReadWriteCreate
+                };
+                ApplyBaseProviderOptions(configuration);
+            }, "sqlite_cache")
+            .WithMessagePack("msgpack_serializer")
+            .WithCompressor();
     }
 
     private void ApplyBaseProviderOptions(BaseProviderOptions configuration)
